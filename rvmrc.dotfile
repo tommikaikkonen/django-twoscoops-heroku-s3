@@ -1,0 +1,2 @@
+[ "$(type -t workon)" == "function" ] && workon {{ project_name }}
+rvm use 1.9.3@{{ project_name }}
