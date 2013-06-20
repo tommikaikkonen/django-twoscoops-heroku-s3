@@ -8,6 +8,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <!-- This file store project specific CSS -->
+    <link href="{% static 'css/screen.css' %}" rel="stylesheet">
+
     <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -19,12 +22,6 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <!-- This file store project specific CSS -->
-    <link href="{% templatetag openblock %} static 'css/screen.css' {% templatetag closeblock %}" rel="stylesheet">
-
-    <!-- Use this to quickly test CSS changes in a template,
-        then move to project.css -->
-    {% templatetag openblock %} block extra_css {% templatetag closeblock %}{% templatetag openblock %} endblock extra_css {% templatetag closeblock %}
   </head>
 
   <body>
