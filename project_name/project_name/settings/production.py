@@ -20,7 +20,7 @@ def get_env_setting(setting):
 
 ########## HOST CONFIGURATION
 # See: https://docs.djangoproject.com/en/1.5/releases/1.5/#allowed-hosts-required-in-production
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.herokuapp.com',]
 ########## END HOST CONFIGURATION
 
 ########## EMAIL CONFIGURATION
@@ -56,7 +56,11 @@ DATABASES = {}
 
 ########## CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
-CACHES = {}
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
 ########## END CACHE CONFIGURATION
 
 
@@ -64,3 +68,12 @@ CACHES = {}
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = get_env_setting('SECRET_KEY')
 ########## END SECRET CONFIGURATION
+
+#Storage on S3 settings are stored as os.environs to keep settings.py clean 
+if not DEBUG:
+    AWS_STORAGE_BUCKET_NAME = environ['AWS_STORAGE_BUCKET_NAME']
+    AWS_ACCESS_KEY_ID = environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = environ['AWS_SECRET_ACCESS_KEY']
+    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+    STATIC_URL = S3_URL

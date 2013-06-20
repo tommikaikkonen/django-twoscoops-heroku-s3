@@ -3,3 +3,6 @@
 -r base.txt
 
 gunicorn==0.17.4
+dj-database-url==0.2.0
+psycopg2==2.5.0
+boto==2.9.5
