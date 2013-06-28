@@ -1,6 +1,19 @@
 ========================
-django-twoscoops-project
+Django-Heroku-S3-EmailRegistration Project Template
 ========================
+
+This is a fork of the Two Scoops Django 1.5 project template with lots of inspiration from Django Modern Template. This is mainly for my personal use, so make sure to test properly if you want to use this.
+
+Features:
+
+Ready to deploy to Heroku
+S3 for storage
+Customer user with email as username
+User registration, profiles and base templates
+Compass/Sass
+Bootstrap
+
+
 
 A project template for Django 1.5.
 
@@ -99,7 +112,7 @@ Services expect a requirements.txt file in the root of projects.*
 Heroku setup
 ============
 
-    heroku apps:create <project_name>
+    heroku apps:create <project_name> --buildpack=git://github.com/heroku/heroku-buildpack-python.git
     heroku addons:add memcachier:dev
     heroku addons:add sendgrid:starter
     heroku addons:add heroku-postgresql:dev
