@@ -20,6 +20,11 @@ SITE_NAME = basename(DJANGO_ROOT)
 path.append(DJANGO_ROOT)
 ########## END PATH CONFIGURATION
 
+########## USER CONFIGURATION
+AUTH_USER_MODEL = 'core.User'
+ACCOUNT_ACTIVATION_DAYS = 7
+LOGIN_REDIRECT_URL = "/"
+########## END USER CONFIGURATION
 
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
@@ -45,7 +50,7 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': '',
         'USER': '',
         'PASSWORD': '',
@@ -100,8 +105,8 @@ STATICFILES_DIRS = (
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
 )
 ########## END STATIC FILE CONFIGURATION
 
@@ -188,6 +193,7 @@ DJANGO_APPS = (
     # 'django.contrib.humanize',
 
     # Admin panel and documentation:
+    'grappelli',
     'django.contrib.admin',
     # 'django.contrib.admindocs',
 )
@@ -197,10 +203,13 @@ THIRD_PARTY_APPS = (
     'south',
     'bootstrap_toolkit',
     'storages',
+    'registration',
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
+    'core',
+    'email_registration',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

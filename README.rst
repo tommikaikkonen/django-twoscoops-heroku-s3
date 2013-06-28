@@ -95,6 +95,28 @@ For production::
 *note: We install production requirements this way because many Platforms as a
 Services expect a requirements.txt file in the root of projects.*
 
+
+Heroku setup
+============
+
+    heroku apps:create <project_name>
+    heroku addons:add memcachier:dev
+    heroku addons:add sendgrid:starter
+    heroku addons:add heroku-postgresql:dev
+    heroku addons:add pgbackups:auto-month
+    heroku addons:add newrelic:standard
+    heroku config:add AWS_ACCESS_KEY_ID=<key id>
+    heroku config:add AWS_SECRET_ACCESS_KEY=<secret key>
+    heroku config:add AWS_STORAGE_BUCKET_NAME=<bucket name>
+    setopt rcquotes
+    heroku config:add SECRET_KEY=<secret_key>
+    heroku run python <project_name>/manage.py syncdb --settings=<project_name>.settings.production
+    heroku run python <project_name>/manage.py migrate --settings=<project_name>.settings.production
+    heroku run python <project_name>/manage.py createsuperuser --settings=<project_name>.settings.production
+    heroku run python <project_name>/manage.py collectstatic --settings=<project_name>.settings.production
+
+    Log into admin and change the site model from the default "example.com" to the proper url and name.
+
 Acknowledgements
 ================
 

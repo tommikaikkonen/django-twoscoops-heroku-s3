@@ -1,8 +1,7 @@
 # Pro-tip: Try not to put anything here. There should be no dependency in
-#	production that isn't in development.
+#   production that isn't in development.
 -r base.txt
 
 gunicorn==0.17.4
 dj-database-url==0.2.0
-psycopg2==2.5.0
 boto==2.9.5

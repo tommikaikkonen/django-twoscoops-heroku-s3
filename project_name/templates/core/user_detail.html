@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}{{object.get_full_name}}{% endblock %}
+
+{% block page_title %}{{object.get_full_name}}{% endblock page_title %}
+
+{% block content %}
+{{ object.email }}
+{% endblock content %}
