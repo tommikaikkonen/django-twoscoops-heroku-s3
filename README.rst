@@ -108,6 +108,13 @@ For production::
 *note: We install production requirements this way because many Platforms as a
 Services expect a requirements.txt file in the root of projects.*
 
+Bootstrap-Sass/Compass/Sass installation
+======================================
+
+1. Make a rvm environment
+2. Bundle install
+3. $ compass watch
+
 
 Heroku setup
 ============
