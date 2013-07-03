@@ -8,3 +8,5 @@ django-bootstrap-toolkit==2.13.2
 pylibmc>=1.2.3
 django-herokuify
 django-grappelli==2.4.5
+django-extensions==1.1.1
+-e hg+https://tommikaikkonen@bitbucket.org/tommikaikkonen/django-registration/@default#egg=django-registration

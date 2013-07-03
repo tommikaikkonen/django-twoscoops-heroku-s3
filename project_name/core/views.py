@@ -4,6 +4,7 @@ from django.views.generic import DetailView
 from django.views.generic.edit import FormView
 from core.models import User
 from core.forms import UserChangeForm
+from braces.views import LoginRequiredMixin
 
 class UserDetailView(DetailView):
     model = User
@@ -11,10 +12,9 @@ class UserDetailView(DetailView):
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(UserDetailView, self).get_context_data(**kwargs)
-        print context['object']
         return context
 
-class UserUpdateView(FormView):
+class UserUpdateView(LoginRequiredMixin, FormView):
     form_class = UserChangeForm
     template_name = "core/user_update.html"
 

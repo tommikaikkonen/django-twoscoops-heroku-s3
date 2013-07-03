@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 from django.utils.translation import ugettext as _
 from django.utils import timezone
 from django.core.mail import send_mail
+from django_extensions.db.fields import UUIDField
 
 # Create your models here.
 
@@ -21,7 +22,7 @@ class EmailUserManager(BaseUserManager):
         return user
  
     def create_superuser(self, email, password, **extra_fields):
-        u = self.create_user(email, password, **extra_fields)
+        u = self.create_user(email, password, first_name=u"Admin", last_name=u"User", **extra_fields)
         u.is_staff = True
         u.is_active = True
         u.is_superuser = True
@@ -30,9 +31,10 @@ class EmailUserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField('email address', unique=True)
+    email = models.EmailField(_('email address'), unique=True)
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=30, blank=True)
+    uuid = UUIDField(unique=True, auto=True)
     
     is_staff = models.BooleanField('staff status', default=False)
     is_active = models.BooleanField('active', default=True)

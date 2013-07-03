@@ -1,13 +1,24 @@
 {% extends "registration/registration_base.html" %}
-{% block title %}Login{% endblock %}
-{% block page_title %}Login{% endblock %}
+{% load i18n %}
+{% block title %}
+    {% trans "Login" context "title" %}
+{% endblock %}
+{% block page_title %}
+    {% trans "Login" context "page_title" %}
+{% endblock %}
+
 {% block content %}
   {% include 'registration/form_errors.html' %}
   <form method="post" class="well" action="{% url 'django.contrib.auth.views.login' %}">{% csrf_token %}
     {% include 'registration/form_fields.html' %}
-
-    <p><a href="{% url 'auth_password_reset' %}">Forgot</a> your password?  <a href="/register/">Need an account</a>?</p>
-    <input type="submit" class="btn" value="Login" />
+    
+    <p><a href="{% url 'auth_password_reset' %}">
+        {% trans "Forgot your password?" %}
+    </a>
+    <a href="/register/">
+        {% trans "Need an account?" %}
+    </a></p>
+    <input type="submit" class="btn" value="{% trans "Login" %}" />
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
 {% endblock %}

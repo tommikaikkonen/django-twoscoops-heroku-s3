@@ -1,6 +1,6 @@
-from core.models import User
 from django.utils.translation import ugettext as _
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.contrib.auth import get_user_model
 
 from django import forms
 
@@ -12,6 +12,7 @@ class UserCreationForm(forms.ModelForm):
     error_messages = {
         'duplicate_email': _("A user with that email address already exists."),
         'password_mismatch': _("The two password fields didn't match."),
+        'password_too_short': _("The password must be longer than 4 characters")
     }
     password1 = forms.CharField(label=_("Password"),
         widget=forms.PasswordInput)
@@ -20,16 +21,17 @@ class UserCreationForm(forms.ModelForm):
         help_text=_("Enter the same password as above, for verification."))
  
     class Meta:
-        model = User
+        model = get_user_model()
         fields = ("email", "first_name", "last_name")
  
     def clean_email(self):
         # Since User.email is unique, this check is redundant,
         # but it sets a nicer error message than the ORM. See #13147.
         email = self.cleaned_data["email"]
+        user = get_user_model()
         try:
-            User._default_manager.get(email=email)
-        except User.DoesNotExist:
+            user._default_manager.get(email=email)
+        except user.DoesNotExist:
             return email
         raise forms.ValidationError(self.error_messages['duplicate_username'])
  
@@ -39,6 +41,9 @@ class UserCreationForm(forms.ModelForm):
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError(
                 self.error_messages['password_mismatch'])
+        if len(password2) < 5:
+            raise forms.ValidationError(
+                self.error_messages['password_too_short'])
         return password2
  
     def save(self, commit=True):
@@ -59,9 +64,9 @@ class UserChangeAdminForm(forms.ModelForm):
                     "using <a href=\"password/\">this form</a>."))
 
     class Meta:
-        model = User
+        model = get_user_model()
         fields = ("email", "first_name", "last_name", "is_active", "is_staff",
-            "is_email_verified", "is_superuser", "groups", "user_permissions", "last_login", "date_joined")
+            "is_email_verified", "is_superuser", "groups", "user_permissions", "last_login", "date_joined",)
 
     def __init__(self, *args, **kwargs):
         super(UserChangeAdminForm, self).__init__(*args, **kwargs)
@@ -73,9 +78,10 @@ class UserChangeAdminForm(forms.ModelForm):
         # Since User.email is unique, this check is redundant,
         # but it sets a nicer error message than the ORM. See #13147.
         email = self.cleaned_data["email"]
+        user = get_user_model()
         try:
-            User._default_manager.get(email=email)
-        except User.DoesNotExist:
+            user._default_manager.get(email=email)
+        except user.DoesNotExist:
             return email
         raise forms.ValidationError(self.error_messages['duplicate_email'])
 
@@ -100,7 +106,7 @@ class UserChangeForm(forms.ModelForm):
         required=False)
 
     class Meta:
-        model = User
+        model = get_user_model()
         fields = ("first_name", "last_name",)
 
     def __init__(self, *args, **kwargs):

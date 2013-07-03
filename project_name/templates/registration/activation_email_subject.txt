@@ -1,1 +1,2 @@
-Account registration for {{ site.name }}
+{% load i18n %}
+{% blocktrans context "email_subject" %}Account registration for {{ site.name }}{% endblocktrans %}

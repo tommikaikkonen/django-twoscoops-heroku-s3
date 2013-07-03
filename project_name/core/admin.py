@@ -1,14 +1,14 @@
 from core.forms import UserCreationForm, UserChangeAdminForm
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from core.models import User
+from django.contrib.auth import get_user_model
 
 class EmailUserAdmin(UserAdmin):
     form = UserChangeAdminForm
     add_form = UserCreationForm
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        ('Personal info', {'fields': ('first_name', 'last_name')}),
+        ('Personal info', {'fields': ('first_name', 'last_name',)}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'is_email_verified', 'groups', 'user_permissions')}),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
     )
@@ -25,4 +25,4 @@ class EmailUserAdmin(UserAdmin):
     search_fields = ('first_name', 'last_name', 'email')
     ordering = ('email',)
 
-admin.site.register(User, EmailUserAdmin)
+admin.site.register(get_user_model(), EmailUserAdmin)

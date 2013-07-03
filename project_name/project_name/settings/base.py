@@ -26,6 +26,9 @@ ACCOUNT_ACTIVATION_DAYS = 7
 LOGIN_REDIRECT_URL = "/"
 ########## END USER CONFIGURATION
 
+DEFAULT_FROM_EMAIL = '{{project_name}} <noreply@{{project_name}}>'
+
+
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = False
@@ -50,7 +53,7 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.',
         'NAME': '',
         'USER': '',
         'PASSWORD': '',
@@ -63,7 +66,7 @@ DATABASES = {
 
 ########## GENERAL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#time-zone
-TIME_ZONE = 'America/Los_Angeles'
+TIME_ZONE = 'Europe/Helsinki'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = 'en-us'
@@ -79,6 +82,10 @@ USE_L10N = True
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
+
+LOCALE_PATHS = (
+    normpath(join(SITE_ROOT, 'locale')),
+)
 ########## END GENERAL CONFIGURATION
 
 
@@ -163,8 +170,9 @@ TEMPLATE_DIRS = (
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#middleware-classes
 MIDDLEWARE_CLASSES = (
     # Default Django middleware.
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -204,6 +212,7 @@ THIRD_PARTY_APPS = (
     'bootstrap_toolkit',
     'storages',
     'registration',
+    'django_extensions',
 )
 
 # Apps specific for this project go here.

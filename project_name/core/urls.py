@@ -12,4 +12,5 @@ urlpatterns = patterns('',
     ),
     url(r'^user/(?P<pk>[-_\w]+)/edit/$', UserUpdateView.as_view(), name='user-update'
     ),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 )

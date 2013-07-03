@@ -1,0 +1,336 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-02 09:14+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"CHARSET: UTF-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: core/forms.py:13 core/forms.py:57
+msgid "A user with that email address already exists."
+msgstr "Käyttäjä on jo olemassa kyseisellä sähköpostiosoitteella."
+
+#: core/forms.py:14 core/forms.py:58
+msgid "The two password fields didn't match."
+msgstr "Salasanat eivät täsmänneet"
+
+#: core/forms.py:15
+msgid "The password must be longer than 4 characters"
+msgstr "Salasanan pitää olla neljää merkkiä pidempi."
+
+#: core/forms.py:17 core/forms.py:60
+msgid "Password"
+msgstr "Salasana"
+
+#: core/forms.py:19
+msgid "Password confirmation"
+msgstr "Salasana uudestaan"
+
+#: core/forms.py:21 core/forms.py:103
+msgid "Enter the same password as above, for verification."
+msgstr "Kirjoita sama salana kuin yläpuolella varmistukseksi."
+
+#: core/forms.py:61
+msgid ""
+"Raw passwords are not stored, so there is no way to see this user's "
+"password, but you can change the password using <a href=\"password/\">this "
+"form</a>."
+msgstr "ddd"
+
+#: core/forms.py:94
+msgid "Old password"
+msgstr "Vanha salasana"
+
+#: core/forms.py:96
+msgid "If you want to change your password, fill out the remaining fields"
+msgstr "Jos haluat muuttaa salasanasi, täytä loput kentät"
+
+#: core/forms.py:98
+msgid "New password"
+msgstr "Uusi salasana"
+
+#: core/forms.py:101
+msgid "New password confirmation"
+msgstr "Uuden salasanan varmistus"
+
+#: core/models.py:33
+msgid "email address"
+msgstr "sähköpostiosoite"
+
+#: core/models.py:34
+msgid "first name"
+msgstr "etunimi"
+
+#: core/models.py:35
+msgid "last name"
+msgstr "sukunimi"
+
+#: templates/base.html:52
+msgctxt "action"
+msgid "Edit Profile"
+msgstr "Muokkaa profiilia"
+
+#: templates/base.html:53
+msgctxt "action"
+msgid "Log out"
+msgstr "Kirjaudu ulos"
+
+#: templates/base.html:57
+msgid "Sign up"
+msgstr "Rekisteröidy"
+
+#: templates/base.html:58
+msgid "Log in"
+msgstr "Kirjaudu sisään"
+
+#: templates/core/user_update.html:2 templates/core/user_update.html.py:3
+msgctxt "title"
+msgid "Edit profile"
+msgstr "Muokkaa profiilia"
+
+#: templates/core/user_update.html:9
+msgctxt "action"
+msgid "Save changes"
+msgstr "Tallenna muutokset"
+
+#: templates/registration/activate.html:5
+msgid "Activation complete"
+msgstr "Aktivointi valmis"
+
+#: templates/registration/activate.html:7
+msgid "Activation problem"
+msgstr "Aktivoinnissa ongelma"
+
+#: templates/registration/activate.html:14
+#, python-format
+msgid ""
+"Thanks %(account)s, activation complete!  You may now <a "
+"href='%(auth_login_url)s'>login</a> using the username and password you set "
+"at registration."
+msgstr ""
+" Kiitos %(account)s, aktivointi on valmis! Voit nyt <a "
+"href='%(auth_login_url)s'>kirjautua sisään sähköpostiosoitteella ja "
+"salasanallasi, joita käytit rekisteröitymiseen.</a>"
+
+#: templates/registration/activate.html:16
+msgid ""
+"Oops &ndash; it seems that your activation key is invalid.  Please check the "
+"url again."
+msgstr "Aktivointikoodisi ei ole oikein. Tarkasta osoite uudelleen."
+
+#: templates/registration/activation_complete.html:3
+msgctxt "title"
+msgid "Activation complete"
+msgstr "Aktivointi valmis"
+
+#: templates/registration/activation_complete.html:6
+#, python-format
+msgid ""
+"Thanks, activation complete! You may now <a href='%(auth_login_url)s'>login</"
+"a> using the username and password you set at registration."
+msgstr ""
+"Kiitos, aktivointi on valmis! Voit nyt <a "
+"href='%(auth_login_url)s'>kirjautua sisään</a> sähköpostiosoitteella ja "
+"salasanallasi, joita käytit rekisteröitymiseen."
+
+#: templates/registration/activation_email.txt:2
+#, python-format
+msgid ""
+"You (or someone pretending to be you) have asked to register an account at \n"
+"%(site.name)s.  If this wasn't you, please ignore this email and your "
+"address will be removed from our records."
+msgstr ""
+"Pyysitte tunnuksien rekisteröintiä sivustolla %(site.name)s. Jos ette "
+"pyytänyt tätä, voitte jättää tämän sähköpostin huomiotta."
+
+#: templates/registration/activation_email.txt:5
+#, python-format
+msgid ""
+"To activate this account, please click the following link within the next \n"
+"%(expiration_days)s days:"
+msgstr ""
+"Aktivoidaksenne tunnukset, klikatkaa seuraavaa linkkiä %(expiration_days)s "
+"päivän kuluessa:"
+
+#: templates/registration/activation_email.txt:10
+#, python-format
+msgid ""
+"Sincerely,\n"
+"%(site.name)s Management"
+msgstr "Terveisin, %(site.name)s"
+
+#: templates/registration/activation_email_subject.txt:2
+#, python-format
+msgctxt "email_subject"
+msgid "Account registration for %(site.name)s"
+msgstr "Tunnuksien rekisteröinti sivustolle %(site.name)s"
+
+#: templates/registration/form_errors.html:4
+msgid "Oops! There were errors processing your form."
+msgstr "Oho! Emme jostain syystä pystyneet käsittelemään lomaketta."
+
+#: templates/registration/login.html:4
+msgctxt "title"
+msgid "Login"
+msgstr "Kirjaudu sisään"
+
+#: templates/registration/login.html:7
+msgctxt "page_title"
+msgid "Login"
+msgstr "Kirjaudu sisään"
+
+#: templates/registration/login.html:16
+msgid "Forgot your password?"
+msgstr "Unohditko salasanan?"
+
+#: templates/registration/login.html:19
+msgid "Need an account?"
+msgstr "Tarvitsetko tunnukset?"
+
+#: templates/registration/login.html:21
+msgid "Login"
+msgstr "Kirjaudu sisään"
+
+#: templates/registration/logout.html:3
+msgctxt "title"
+msgid "Logged out"
+msgstr "Kirjautunut ulos"
+
+#: templates/registration/logout.html:5
+msgid "Successfully logged out!"
+msgstr "Kirjauduit onnistuneesti ulos!"
+
+#: templates/registration/password_change_done.html:3
+msgid "Password changed"
+msgstr "Salasana muutettu"
+
+#: templates/registration/password_change_done.html:5
+msgid "Password successfully changed!"
+msgstr "Salasana vaihdettu onnistuneesti!"
+
+#: templates/registration/password_change_form.html:3
+msgctxt "title"
+msgid "Change password"
+msgstr "Vaihda salasanaa"
+
+#: templates/registration/password_change_form.html:8
+msgctxt "action"
+msgid "Change password"
+msgstr "Vaihda salasana"
+
+#: templates/registration/password_reset_complete.html:3
+msgctxt "title"
+msgid "Password reset complete"
+msgstr "Salasanan uudelleenasetus valmis"
+
+#: templates/registration/password_reset_confirm.html:3
+msgctxt "title"
+msgid "Confirm password reset"
+msgstr "Vahvista salasanan uudelleenasetus"
+
+#: templates/registration/password_reset_confirm.html:5
+msgid "Enter your new password below to reset your password"
+msgstr "Kirjoita uusi salasanasi alle"
+
+#: templates/registration/password_reset_confirm.html:9
+msgctxt "action"
+msgid "Set password"
+msgstr "Aseta salasana"
+
+#: templates/registration/password_reset_done.html:3
+msgctxt "title"
+msgid "Password reset"
+msgstr "Aseta salasana uudelleen"
+
+#: templates/registration/password_reset_done.html:5
+msgid ""
+"We have sent you an email with a link to reset your password. Please check "
+"your email and click the link to continue."
+msgstr ""
+"Sähköpostiisi on lähetetty aktivointiviesti. Tarkista sähköpostisi ja "
+"klikkaa linkkia aktivoidaksesi tunnukset."
+
+#: templates/registration/password_reset_email.html:2
+msgctxt "Email greeting followed by username"
+msgid "Greetings"
+msgstr "Hei"
+
+#: templates/registration/password_reset_email.html:4
+#, python-format
+msgid ""
+"You are receiving this email because you (or someone pretending to be you)\n"
+"requested that your password be reset on the %(domain)s site.  If you do "
+"not \n"
+"wish to reset your password, please ignore this message."
+msgstr ""
+"Sait tämän viestin, koska pyysit salasanasi uudelleenasetusta sivustolla "
+"%(domain)s. Jos et halua asettaa salasanaasi uudelleen, tai et pyytänyt "
+"sitä, voit jättää tämän viestin huomiotta."
+
+#: templates/registration/password_reset_email.html:8
+msgid ""
+"To reset your password, please click the following link, or copy and paste "
+"it into your web browser:"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:12
+msgid "Your username, in case you've forgotten:"
+msgstr "Käyttäjätunnuksesi on:"
+
+#: templates/registration/password_reset_email.html:15
+#, python-format
+msgid "Best regards, %(site_name)s Management"
+msgstr "Terveisin, %(site_name)s"
+
+#: templates/registration/password_reset_form.html:3
+msgctxt "title"
+msgid "Reset password"
+msgstr "Aseta salasana udelleen"
+
+#: templates/registration/password_reset_form.html:5
+msgid ""
+"Forgot your password?  Enter your email in the form below and we'll send you "
+"instructions for creating a new one."
+msgstr ""
+"Unohditko salasanasi? Kirjoita sähköpostiosoitteesi ja lähetämme sinne "
+"ohjeet uuden salasanan saamiseen"
+
+#: templates/registration/password_reset_form.html:9
+msgctxt "action"
+msgid "Reset password"
+msgstr "Aseta salasana uudelleen"
+
+#: templates/registration/registration_complete.html:3
+msgid "Activation email sent"
+msgstr "Aktivointiviesti lähetetty sähköpostiin"
+
+#: templates/registration/registration_complete.html:5
+msgid ""
+"An activation email has been sent.  Please check your email and click on the "
+"link to activate your account."
+msgstr ""
+"Sähköpostiisi on lähetetty aktivointiviesti. Tarkista sähköpostisi ja "
+"klikkaa linkkia aktivoidaksesi tunnukset."
+
+#: templates/registration/registration_form.html:3
+#: templates/registration/registration_form.html:4
+msgctxt "title"
+msgid "Register for an account"
+msgstr "Rekisteröidy"
+
+#: templates/registration/registration_form.html:10
+msgid "Send activation email"
+msgstr "Lähetä aktivointiviesti sähköpostiin"

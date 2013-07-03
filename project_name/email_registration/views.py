@@ -10,7 +10,6 @@ from email_registration.models import EmailRegistrationProfile
 
 class EmailRegistrationView(RegistrationView):
     form_class = UserCreationForm
-    success_url = "/"
 
     def register(self, request, **cleaned_data):
         """
@@ -50,3 +49,6 @@ class EmailRegistrationView(RegistrationView):
                                      user=new_user,
                                      request=request)
         return new_user
+
+    def get_success_url(self, request, user):
+        return ('registration_complete', (), {})
