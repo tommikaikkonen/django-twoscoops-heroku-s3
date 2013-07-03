@@ -90,7 +90,7 @@ Creating your project
 To create a new Django project called '**icecream**' using
 django-twoscoops-project, run the following command::
 
-    $ django-admin.py startproject --template=https://github.com/tommikaikkonen/django-twoscoops-heroku-s3/archive/develop.zip --extension=py,rst,html,dotfile,rb --name=Procfile,Gemfile icecream
+    $ django-admin.py startproject --template=https://github.com/tommikaikkonen/django-twoscoops-heroku-s3/archive/develop.zip --extension=py,rst,dotfile,rb --name=Procfile,Gemfile,base.html,404.html icecream
 
 Installation of Dependencies
 =============================
